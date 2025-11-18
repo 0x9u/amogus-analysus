@@ -1,0 +1,118 @@
+start cafeteria
+
+cafeteria -- weapons
+weapons -- hub1
+o2 -- hub1
+navigation -- hub1
+shields -- hub1
+shields -- hub2
+communications -- hub2
+storage -- hub2
+storage -- hub3
+admin -- hub3
+cafeteria -- hub3
+cafeteria -- hub4
+medbay -- hub4
+upper engine -- hub4
+upper engine -- hub5
+reactor -- hub5
+security -- hub5
+lower engine -- hub5
+lower engine -- hub6
+electrical -- hub6
+storage -- hub6
+
+upper engine -v- upper engine vent
+reactor -v- reactor vent upper
+reactor -v- reactor vent lower
+lower engine -v- lower engine vent
+medbay -v- medbay vent
+security -v- security vent
+electrical -v- electrical vent
+cafeteria -v- cafeteria vent
+admin -v- admin vent
+hub1 -v- hub1 vent
+weapons -v- weapons vent
+navigation -v- navigation vent upper
+navigation -v- navigation vent lower
+shields -v- shields vent
+
+upper engine vent -v- reactor vent upper
+reactor vent lower -v- lower engine vent
+medbay vent -v- security vent
+security vent -v- electrical vent
+electrical vent -v- medbay vent
+cafeteria vent -v- hub1 vent
+hub1 vent -v- admin vent
+admin vent -v- cafeteria vent
+weapons vent -v- navigation vent upper
+navigation vent lower -v- shields vent
+
+align engine output upper -t- upper engine -t- L -t- -> align engine output lower
+align engine output lower -t- lower engine -t- L
+
+calibrate distributor -t- electrical -t- S
+
+chart course -t- navigation -t- S
+
+clean o2 filter -t- o2 -t- S
+
+clear asteroids -t- weapons -t- L -t- V
+
+divert power -t- electrical -t- S -t- -> divert power communications, divert power lower engine, divert power navigation, divert power o2, divert power security, divert power shields, divert power upper engine, divert power weapons
+
+divert power communications -t- communications -t- S
+divert power lower engine -t- lower engine -t- S
+divert power navigation -t- navigation -t- S
+divert power o2 -t- o2 -t- S
+divert power security -t- security -t- S
+divert power shields -t- shields -t- S
+divert power upper engine -t- upper engine -t- S
+divert power weapons -t- weapons -t- S
+
+empty chute o2 -t- o2 -t- L -t- V -t- -> empty chute storage
+empty chute storage -t- storage -t- L -t- V
+
+empty garbage cafeteria -t- cafeteria -t- L -t- V -t- -> empty garbage storage
+empty garbage storage -t- storage -t- L -t- V
+
+fuel engines storage upper -t- storage -t- L -t- -> fuel engines upper engine
+fuel engines upper engine -t- upper engine -t- L -t- -> fuel engines storage lower
+fuel engines storage lower -t- storage -t- L -t- V -> fuel engines lower engine
+fuel engines lower engine -t- lower engine -t- L -t- V
+
+prime shields -t- shields -t- S -t- V
+
+stabilize steering -t- navigation -t- S
+
+start reactor -t- reactor -t- L
+
+submit scan -t- medbay -t- L -t- V
+
+swipe card -t- admin -t- S
+
+unlock manifolds -t- reactor -t- S
+
+upload data cafeteria -t- cafeteria -t- S -t- -> upload data admin
+upload data communications -t- communications -t- S -t- -> upload data admin
+upload data electrical -t- electrical -t- S -t- -> upload data admin
+upload data navigation -t- navigation -t- S -t- -> upload data admin
+upload data weapons -t- weapons -t- S -t- -> upload data admin
+upload data admin -t- admin -t- S
+
+red -p- -> align engine output lower -p- P
+blue -p- -> calibrate distributor
+green -p- -> chart course, divert power
+pink -p- -> clean o2 filter, clear asteroids
+brown -p- -> divert power
+white -p- -> empty chute o2, chart course, divert power
+yellow -p- -> empty chute o2, chart course, divert power
+cyan -p- -> empty garbage cafeteria, fuel engines storage upper
+//orange -p- prime shields, stabilize steering
+//black -p- divert power, shields
+//purple -p- submit scan, swipe card
+//turquoise -p- empty garbage cafeteria, fuel engines storage upper
+//gray -p- empty garbage cafeteria, fuel engines storage upper
+//red_blue -p- empty garbage cafeteria, fuel engines storage upper
+//saturated_yellow -p- empty garbage cafeteria, fuel engines storage upper
+//rose -p- empty garbage cafeteria, fuel engines storage upper

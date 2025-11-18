@@ -1,0 +1,38 @@
+path maps/skeld.png
+
+admin     | 1200,650
+cafeteria | 1000, 260
+communications | 1200,1000
+electrical| 700,700
+hub1      | 1500,500
+hub2      | 1200,800
+hub3      | 1000,580
+hub4      | 665, 260
+hub5      | 340, 515
+hub6      | 550,900
+lower engine | 350, 800
+medbay    | 665, 420
+navigation | 1750, 485
+o2        | 1300,500
+reactor   | 90, 515
+security  | 500, 515
+shields   | 1400,900
+storage   | 1000, 900
+upper engine | 335, 260
+weapons   | 1400, 260
+
+upper engine vent   |   275, 183
+reactor vent upper  |   160, 380
+reactor vent lower  |   160, 650
+lower engine vent   |   275, 840
+medbay vent         |   578, 513
+security vent       |   488, 575
+electrical vent     |   600, 605
+cafeteria vent      |   1200, 400
+hub1 vent           |   1400, 575
+admin vent          |   1300, 750
+weapons vent        |   1555, 150
+navigation vent upper|  1750, 350
+navigation vent lower|  1750, 620
+shields vent        |   1555, 900
+
