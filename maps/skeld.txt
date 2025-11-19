@@ -107,12 +107,12 @@ pink -p- -> clean o2 filter, clear asteroids
 brown -p- -> divert power
 white -p- -> empty chute o2, chart course, divert power
 yellow -p- -> empty chute o2, chart course, divert power
-cyan -p- -> empty garbage cafeteria, fuel engines storage upper
-//orange -p- prime shields, stabilize steering
-//black -p- divert power, shields
-//purple -p- submit scan, swipe card
-//turquoise -p- empty garbage cafeteria, fuel engines storage upper
-//gray -p- empty garbage cafeteria, fuel engines storage upper
-//red_blue -p- empty garbage cafeteria, fuel engines storage upper
-//saturated_yellow -p- empty garbage cafeteria, fuel engines storage upper
-//rose -p- empty garbage cafeteria, fuel engines storage upper
+cyan -p- -> empty garbage cafeteria, fuel engines storage upper -p- P
+orange -p- prime shields, stabilize steering
+black -p- divert power, shields
+purple -p- submit scan, swipe card
+turquoise -p- empty garbage cafeteria, fuel engines storage upper
+gray -p- empty garbage cafeteria, fuel engines storage upper
+red_blue -p- empty garbage cafeteria, fuel engines storage upper
+saturated_yellow -p- empty garbage cafeteria, fuel engines storage upper
+rose -p- empty garbage cafeteria, fuel engines storage upper

@@ -17,7 +17,7 @@ SIMULATE_SECONDS = 2
 
 TIMER_EVENT = pg.USEREVENT + 1
 
-SEED = 1
+SEED = 97
 # seed 1, red imposter immediately kills cyan crewmate and gets voted out at tick 1
 # seed 67, red imposter is followed and kills cyan crewmate and gets voted out at tick 2
 # seed 65, red imposter leaves group at tick 2, red kills pink and self reports blaming white but gets voted out due to majority witnesses
@@ -169,7 +169,7 @@ class GUI:
         
 if __name__ == "__main__":
     game =  Game("maps/skeld.txt", debug=True)
-    fuzzer = Fuzzer(game, seed=SEED, enable_competency=True)
+    fuzzer = Fuzzer(game, seed=SEED, enable_competency=False)
     gui = GUI(game, fuzzer, "maps/skeld_display.txt")
     gui.run()
     game.print_action_history(SEED)

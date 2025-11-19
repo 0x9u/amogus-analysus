@@ -629,9 +629,14 @@ class Game:
 
             if len(imposters_in_node) - len(crewmates_in_node) >= 1:
                 if self.debug: print("voted out reporter")
-                reporter.state = PlayerState.DEAD
-                reporter.voted_out = True
-                self._log_report_outcome(reporter, witnessed, dead_bodies, reporter)
+                if reporter.imposter:
+                    witnessed.state = PlayerState.DEAD
+                    witnessed.voted_out = True
+                    self._log_report_outcome(reporter, witnessed, dead_bodies, witnessed)
+                else:
+                    reporter.state = PlayerState.DEAD
+                    reporter.voted_out = True
+                    self._log_report_outcome(reporter, witnessed, dead_bodies, reporter)
                 return
             elif len(crewmates_in_node) - len(imposters_in_node) >= 1:
                 if self.debug: print("voted out witnessed player")
