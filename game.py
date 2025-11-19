@@ -666,7 +666,10 @@ class Game:
 
         witnesses = latest_entry.witnesses
         kill_tick = latest_entry.tick
-        if witnesses:
+
+        no_of_imposters = sum([1 for p in witnesses if p.imposter])
+        
+        if len(witnesses) > no_of_imposters: # this used to be "if witnesses" which is a bug
             if self.debug: print(f"direct witnesses: {witnesses}")
             latest_entry.killer.state = PlayerState.DEAD
             latest_entry.killer.voted_out = True
