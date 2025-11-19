@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 MAX_TICKS = 50_000
 START_SEED = 1
-END_SEED = 10000
+END_SEED = 10_000
 
 def run_single(seed: int, setup_file: str, double_up: bool) -> tuple[int, str, int]:
     game = Game(setup_file)
@@ -30,7 +30,7 @@ def run_bulk(setup_file: str, double_up: bool) -> list[tuple[int, str, int]]:
     for seed in range(START_SEED, END_SEED + 1):
         result = run_single(seed, setup_file, double_up)
         results.append(result)
-        print(result)
+        #print(result)
     return results
 
 def plot_results_comparison(double_up_results, k_results, image_path="results.png") -> None:
@@ -52,9 +52,31 @@ def plot_results_comparison(double_up_results, k_results, image_path="results.pn
     width = 0.35
 
     plt.figure(figsize=(10, 6))
-    plt.bar([i - width/2 for i in x], double_vals, width, label="Double-Up", color="blue", alpha=0.7)
-    plt.bar([i + width/2 for i in x], k_vals,      width, label="K",         color="red",  alpha=0.7)
+    bars_double = plt.bar([i - width/2 for i in x], double_vals, width, label="Double-Up", color="blue", alpha=0.7)
+    bars_k = plt.bar([i + width/2 for i in x], k_vals,      width, label="k+3k-Up",         color="red",  alpha=0.7)
+    
+    for bar in bars_double:
+        height = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            height,
+            str(height),
+            ha="center",
+            va="bottom",
+            fontsize=9
+        )
 
+    for bar in bars_k:
+        height = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            height,
+            str(height),
+            ha="center",
+            va="bottom",
+            fontsize=9
+        )
+        
     plt.xticks(list(x), labels)
     plt.ylabel("Win count")
     plt.title("Strategy Win Count Comparison")
